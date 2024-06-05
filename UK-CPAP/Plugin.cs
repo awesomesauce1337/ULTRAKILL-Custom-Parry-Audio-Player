@@ -61,7 +61,7 @@ namespace ultrakillParrySoundAndAudioReplacer
             int floatCount = (byteArray.Length - headerSize) / sizeof(short); // Assuming 16-bit PCM
             float[] floatArray = new float[floatCount];
             int BitDepth = FindBitDepth(byteArray);
-            Console.WriteLine(BitDepth);
+            //Console.WriteLine(BitDepth);
             if (BitDepth == 16)
             {
                 for (int i = 0; i < floatCount; i++)
@@ -91,7 +91,7 @@ namespace ultrakillParrySoundAndAudioReplacer
                 WorkingArray[WorkingArray.Length - 1] = WorkingByte;
             }
             int CombinedBytes = BitConverter.ToInt32(WorkingArray, 0);
-            Console.WriteLine(CombinedBytes);
+            //Console.WriteLine(CombinedBytes);
             return CombinedBytes * 2; //audio plays slow, brute forcing frequency higher fixes
         }
         
@@ -127,15 +127,15 @@ namespace ultrakillParrySoundAndAudioReplacer
         internal static ManualLogSource Logger;
         private void Awake()
         {
-            Console.WriteLine("Audio making");
+            //Console.WriteLine("Audio making");
             if (ParryFlash == null)
             {
                 
-                Console.WriteLine("Audio making 1");
+                //Console.WriteLine("Audio making 1");
                 ParryFlash = transform.Find("ParryFlash").gameObject;
                 AudioClipObject = new GameObject("Audio Clip");
                 AudioClipObject.SetActive(true);
-                Console.WriteLine("Audio making 2");
+                //Console.WriteLine("Audio making 2");
 
 
 
@@ -149,9 +149,9 @@ namespace ultrakillParrySoundAndAudioReplacer
                 if (Assets.AudioParryClip != null)
                 {
                     AudioSource.clip = Assets.AudioParryClip;
-                    Console.WriteLine("Audio making 2");
+                    //Console.WriteLine("Audio making 2");
                     AudioClipObject.transform.SetParent(gameObject.transform);
-                    Console.WriteLine("Audio made");
+                    //Console.WriteLine("Audio made");
                 }
             }
             
